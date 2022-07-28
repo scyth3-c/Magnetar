@@ -1,0 +1,5 @@
+*.o
+*.d
+.vscode
+dev.txt
+temp/
