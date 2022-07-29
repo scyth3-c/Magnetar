@@ -3,18 +3,6 @@
 
 int main()
 {
-
-
-    /*
-     * 
-     *              YES, I SHOULD REWRITE JSON SYSTEM  
-     *              BECAUSE, IS SLOW!!
-     *              REMNBER, THIS IS A DEMO!!
-     * 
-     * 
-     * 
-     */
-
      
     Magnetar<Server> tasty;
     tasty.setPort(8080);
