@@ -12,12 +12,12 @@ class param_box{
 
     public:
     param_box(string _name, string _value){ 
-      name = _name;
-      value = _value;
+      name = std::move(_name);
+      value = std::move(_value);
     }
     param_box(std::pair<string,string> conten) : _body(conten) {
-        name = _body.first;
-        value = _body.second;
+        name = std::move(conten.first);
+        value = std::move(conten.second);
     }  
     string name{""};
     string value{""};

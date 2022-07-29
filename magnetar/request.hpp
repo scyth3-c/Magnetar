@@ -9,7 +9,7 @@
 using std::string;
 using std::vector;
 
-#define NOT_PARAMS "___s"
+constexpr const char* NOT_PARAMS = "___s";
 
 class Request
 {
