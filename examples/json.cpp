@@ -8,17 +8,19 @@ int main()
     tasty.setPort(8080);
      tasty.get("/json",{ [&](Query &control) {
 
-        JSON id = {
+        id = {
             "id", "54",
             "token", "asd"
-        };
-        JSON kevin = {
+        },
+          
+        kevin = {
             "name", "kevin",
             "lastname", "bohorquez",
             "age", "19",
             "id", id()
-        };
-        JSON dev = {
+        },
+          
+        dev = {
             "ficha", "123",
             "lang",  "c++",
             "dev", kevin()
