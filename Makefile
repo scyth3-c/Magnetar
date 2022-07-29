@@ -8,7 +8,7 @@ DIR_TEMP := ./temp
 DIR_OBJ := $(DIR_TEMP)/objects
 
 COMPILER := g++
-FLAGS = -std=c++20 -I$(INCLUDE) -lpthread
+FLAGS = -std=c++20 -I$(INCLUDE) -lpthread -Wall -Wextra -Wpedantic 
 
 
 OBJ := $(DIR_OBJ)/main.o 
@@ -26,4 +26,4 @@ $(DIR_OBJ)/%.o : $(SOURCE_DIR)/%.cpp
 
 .PHONY: clean
 clean:
-	@rm -rf $(DIR_OBJ) $(DIR_BIN)
+	@rm -rf $(DIR_OBJ) $(TARGET)

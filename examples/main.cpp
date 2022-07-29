@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../magnetar/core.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
     Magnetar<Server> tasty;
     tasty.setPort(8080);
