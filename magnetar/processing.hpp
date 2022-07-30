@@ -1,22 +1,22 @@
 #ifndef PROCESSING_HPP
 #define PROCESSING_HPP
 
-constexpr auto GET_TYPE = "GET";
-constexpr auto POST_TYPE = "POST";
-constexpr auto PUT_TYPE  = "PUT";
-constexpr auto DELETE_TYPE = "DELETE";
-constexpr auto PATCH_TYPE = "PATCH";
+constexpr const char* GET_TYPE = "GET";
+constexpr const char* POST_TYPE = "POST";
+constexpr const char* PUT_TYPE  = "PUT";
+constexpr const char* DELETE_TYPE = "DELETE";
+constexpr const char* PATCH_TYPE = "PATCH";
 
-constexpr auto COPY_TYPE = "COPY";
-constexpr auto HEAD_TYPE = "HEAD";
-constexpr auto OPTIONS_TYPE = "OPTIONS";
-constexpr auto LINK_TYPE = "LINK";
-constexpr auto UNLINK_TYPE = "UNLINK";
-constexpr auto PURGE_TYPE = "PURGE";
+constexpr const char* COPY_TYPE = "COPY";
+constexpr const char* HEAD_TYPE = "HEAD";
+constexpr const char* OPTIONS_TYPE = "OPTIONS";
+constexpr const char* LINK_TYPE = "LINK";
+constexpr const char* UNLINK_TYPE = "UNLINK";
+constexpr const char* PURGE_TYPE = "PURGE";
 
 
-#define X_WWW_FORM "application/x-www-form-urlencoded"
-#define PLAIN_TEXT "text/plain"
+constexpr const char* X_WWW_FORM = "application/x-www-form-urlencoded";
+constexpr const char* PLAIN_TEXT = "text/plain";
 
 #include <string>
 #include "request.hpp"
@@ -25,17 +25,18 @@ using std::string;
 class HTTP_QUERY
 {
 private:
-     int max_iterator{50};
+     size_t max_iterator{50};
 
 public:
     HTTP_QUERY() {}
     ~HTTP_QUERY() {}
-    string route_refactor_params(string &, string);
-    string get_params(string &, bool &);
-    string x_www_form_urlencoded(string &, string type = "");
-    string findContenType(string &);
-    string selectPerType(string &, string&, string&, bool&);
-    std::pair<string, string> route_refactor(string &);
+    
+   [[nodiscard]] string route_refactor_params(string &);
+   [[nodiscard]] string get_params(string &, bool &);
+   [[nodiscard]] string x_www_form_urlencoded(string &, string type = "");
+   [[nodiscard]] string findContenType(string &);
+   [[nodiscard]] string selectPerType(string &, string&, bool&);
+   [[nodiscard]] std::pair<string, string> route_refactor(string &);
 };
 
 string HTTP_QUERY::x_www_form_urlencoded(string &target, string plain)
@@ -53,7 +54,7 @@ string HTTP_QUERY::x_www_form_urlencoded(string &target, string plain)
     return plain + params;
 }
 
-string HTTP_QUERY::selectPerType(string& target, string &conten_type, string& type, bool &init) {
+string HTTP_QUERY::selectPerType(string& target, string &conten_type,bool &init) {
     if(conten_type == X_WWW_FORM) {
         init = true;
         return x_www_form_urlencoded(target);
@@ -66,15 +67,14 @@ string HTTP_QUERY::selectPerType(string& target, string &conten_type, string& ty
 }
 
 
-string HTTP_QUERY::route_refactor_params(string &target, string type)
+string HTTP_QUERY::route_refactor_params(string &target)
 {
-
  string route{""}, 
         content_type{""};
  bool   init{false};
 
     content_type = findContenType(target);    
-    route = selectPerType(target, content_type, type, init); 
+    route = selectPerType(target, content_type, init); 
 
     return  init ? route : NOT_PARAMS;
 }

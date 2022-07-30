@@ -46,16 +46,17 @@ class Query
 
     Request body; // property access
 
-    string  getData()    const noexcept;
+    [[nodiscard]] string  getData()    const noexcept;
     bool    getNext()    const noexcept;
+    
     void    next()       noexcept;
     void    lock()       noexcept;
 
     void    setHeaders(HEADERS) noexcept;
     void    setHeaders(string) noexcept;
 
-
     //  PARAMS:  CONTEN  OPTIONAL CALLBACK
+    
     void    json(string, std::function<void()> opcional=[]()->void{}) noexcept;
     void    html(string, std::function<void()> opcional=[]()->void{}) noexcept;
     void    send(string, std::function<void()> opcional=[]()->void{}) noexcept;
@@ -63,9 +64,9 @@ class Query
     void    readFileX(string,string, std::function<void()> opcional=[]()->void{}) noexcept;
 
     // PARAMS:  CONTEN  STATUS OPTIONAL CALLBACK
-    void    json(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
-    void    html(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
-    void    send(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
+     void    json(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
+     void    html(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
+     void    send(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
 
 };
 

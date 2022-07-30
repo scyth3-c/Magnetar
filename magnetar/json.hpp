@@ -11,7 +11,7 @@ using std::string, std::vector, std::initializer_list;
 
 template<class...P>
 struct JSON_t {
-    JSON_t(initializer_list<P...> list) : body(list)  {}
+    JSON_t(initializer_list<P...> list) : body(std::move(list))  {}
     vector<string> body;
     string json(){
         string response{"{ "};

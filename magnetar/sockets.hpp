@@ -29,10 +29,9 @@ public:
     ~sonar_socket()
     {
         PORT.reset();
-        delete buffer;
     }
     int create(int _domain = AF_INET, int type = SOCK_STREAM, int protocol = 0);
-    inline void setPort(int _port)
+   [[noreturn]] inline void setPort(int _port)
     {
         PORT.reset();
         PORT = make_shared<uint16_t>(_port);
@@ -49,7 +48,6 @@ protected:
         option_name{1},
         address_lenght{sizeof(address)};
     int buffer_size{2048};
-    char *buffer;
 };
 
 class Server : public sonar_socket
@@ -62,8 +60,8 @@ public:
     Server() {}
     Server(uint16_t _port) : sonar_socket(_port) {}
 
-    int on(uint16_t _port = 0);
-    string getResponse();
+    int on();
+    char* getResponse();
     void send_data(string conten, int flags = 0);
     inline void setSesions(int _max) { sesions = _max; }
 };
@@ -86,10 +84,9 @@ int sonar_socket::create(int _domain, int type, int protocol)
     return SONAR_OK;
 }
 
-int Server::on(uint16_t _port)
+int Server::on()
 {
-
-    buffer = new char[buffer_size];
+     
 
     int socket_see = setsockopt(socket_id, SOL_SOCKET,
                                 SO_REUSEADDR | SO_REUSEPORT, &option_name,
@@ -101,29 +98,27 @@ int Server::on(uint16_t _port)
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(*PORT);
 
-    socket_see = bind(socket_id, (struct sockaddr *)&address, sizeof(address));
-    if (socket_see < 0)
-        return socketError(-2);
+bind(socket_id, (struct sockaddr *)&address, sizeof(address));
+    // if (socket_see < 0)
+    //     return socketError(-2);
 
-    socket_see = listen(socket_id, sesions);
-    if (socket_see < 0)
-        return socketError(-3);
-
-    socket_see = new_socket = accept(socket_id, (struct sockaddr *)&address, (socklen_t *)&address_lenght);
-    if (socket_see < 0)
-        return socketError(-4);
-
+listen(socket_id, sesions);
+    // if (socket_see < 0)
+    //     return socketError(-3);
+ new_socket = accept(socket_id, (struct sockaddr *)&address, (socklen_t *)&address_lenght);
+    // if (socket_see < 0)
+    //     return socketError(-4);
     return SONAR_OK;
 }
 
-string Server::getResponse()
-{
+char* Server::getResponse()
+{   
+    char *buffer = new char[buffer_size];
     state_receptor = read(new_socket, buffer, buffer_size);
     return buffer;
 }
 
-void Server::send_data(string _msg, int flags)
-{
+void Server::send_data(string _msg, int flags){
     auto conten = (char *)_msg.c_str();
     try
     {

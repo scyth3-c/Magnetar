@@ -17,10 +17,13 @@ constexpr auto LAUNCH = -5;
 struct _terminal{
 
 template<class... P>
-constexpr static auto show(std::ostream& os, P const&... args )
-{ ((os<<args), ...); };
+constexpr static void show(std::ostream& os, P const&... args )
+{
+     ((os<<args), ...);
+}
 
 };
+
 
 constexpr int socketError(int type) noexcept {
     const char* msg{};

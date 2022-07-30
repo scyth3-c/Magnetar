@@ -52,11 +52,12 @@ public:
 
 
     inline void _wait           (int milis)const              {std::this_thread::sleep_for(std::chrono::milliseconds(milis)); }
-    inline void stopp           ()noexcept                    { stop_loop = true; }
     inline void setMaxSesions   (unsigned int _max)noexcept   { sesions = _max; }
     inline void setClockPerNext (unsigned int milis)noexcept  { milis_clock = milis; }
-    inline void cleanConnections()noexcept                    { connections.clear(); }
     inline auto getConnections  ()noexcept                    { return connections; }
+
+    inline void stopp           ()noexcept                    { stop_loop = true; }
+    inline void cleanConnections()noexcept                    { connections.clear(); }
    
     int http_response     (string, _callbacks, string optional);
     int get      (string, _callbacks);
@@ -107,9 +108,8 @@ int Magnetar<T>::http_response(string _xRoute, _callbacks _funcs, string optiona
 }
 
 /*
-  YES, this is BECAUSE  when using magnetar just use .get etc
+  YES, this is BECAUSE  when using magnetar just use .get() etc
 */
-
 template <class T>
 int Magnetar<T>::get(string _xRoute, _callbacks _funcs){
     return http_response (_xRoute, _funcs, GET_TYPE);
@@ -172,25 +172,25 @@ void Magnetar<T>::listen()
                 if (!control->create(_domain, type, protocol))
                 throw "error al crear";
             control->setSesions(sesions);
-                if (!control->on(PORT))
+                if (!control->on())
                 throw "error al lanzar";
             
             string send_target{};
-            string local_response = control->getResponse();
-            std::pair<string,string> actual_route = qProcess->route_refactor(local_response);
+
+            string trait = (string)control->getResponse();
+            std::pair<string,string> actual_route = qProcess->route_refactor(trait);
             std::vector<listen_routes> sesion_routes = routes; // generate COPY  NOT MOVE X
 
             for (auto &it : sesion_routes) {
 
                 if ( it.route.getType() == actual_route.first && it.route.getName() == actual_route.second) {
 
-                    string parametros = qProcess->route_refactor_params(local_response, it.route.getType());
+                    string parametros = qProcess->route_refactor_params(trait);
                     send_target = it.callbacks.execute(parametros);
                     cantget = false;
 
                     break;
                 }
-
             }
 
             sesion_routes.clear();

@@ -36,13 +36,14 @@
   normal:
     
     $ g++ -std=c++17 main.cpp -o Magnetar
+    $ ./Magnetar
 
 ```
  **all examples work**
 ### a preview of my web server,  intuitive and easy to use
 
 
-well, I wanted to make public the whole process/growth of this project, it is a web server in c++ whose requirements are to have g++ and linux only, currently, only attends GET requests but in the future I will expand little by little, it has several functions to make it more familiar as other web servers such as express in Node.js, it has a web servers like express in Node.js, it has a familiar syntax and I plan to insert existing modules that I uploaded previously as "addons" but I will try as much as possible not to add things to it. as much as possible not to add things that require something else like curl etc. to make it easier to use, here below you will find some screenshots of how it works. documentation is in process and if you want to collaborate do it without any fear, you can talk to me directly, my contact information is at  at [bohorquez.tech](https://bohorquez.tech)
+well, I wanted to make public the whole process/growth of this project, it is a web server in c++ whose requirements are to have g++ and linux only, currently, only attends GET and others requests but in the future I will expand little by little, it has several functions to make it more familiar as other web servers such as express in Node.js, it has a familiar syntax and I plan to insert existing modules that I uploaded previously as "addons" but I will try as much as possible not to add things to it. as much as possible not to add things that require something else like curl etc. to make it easier to use, here below you will find some screenshots of how it works. documentation is in process and if you want to collaborate do it without any fear, you can talk to me directly, my contact information is at  at [bohorquez.tech](https://bohorquez.tech)
 
 <hr />
 

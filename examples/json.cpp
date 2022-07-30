@@ -1,36 +1,26 @@
 #include <iostream>
 #include "../magnetar/core.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
-
-
-    /*
-     * 
-     *              YES, I SHOULD REWRITE JSON SYSTEM  
-     *              BECAUSE, IS SLOW!!
-     *              REMNBER, THIS IS A DEMO!!
-     * 
-     * 
-     * 
-     */
-
      
     Magnetar<Server> tasty;
     tasty.setPort(8080);
      tasty.get("/json",{ [&](Query &control) {
 
-        JSON id = {
+        id = {
             "id", "54",
             "token", "asd"
-        };
-        JSON kevin = {
+        },
+          
+        kevin = {
             "name", "kevin",
             "lastname", "bohorquez",
             "age", "19",
             "id", id()
-        };
-        JSON dev = {
+        },
+          
+        dev = {
             "ficha", "123",
             "lang",  "c++",
             "dev", kevin()
