@@ -8,6 +8,7 @@
 #include <functional>
 #include "request.hpp"
 #include "filereader.hpp"
+#include "interpretado.hpp"
 
 #include "json.hpp"
 
@@ -55,10 +56,12 @@ class Query
     void    setHeaders(string) noexcept;
 
     //  PARAMS:  CONTEN  OPTIONAL CALLBACK
-     void    json(string, std::function<void()> opcional=[]()->void{}) noexcept;
-     void    html(string, std::function<void()> opcional=[]()->void{}) noexcept;
-     void    send(string, std::function<void()> opcional=[]()->void{}) noexcept;
-     void    readFile(string,string, std::function<void()> opcional=[]()->void{}) noexcept;
+    
+    void    json(string, std::function<void()> opcional=[]()->void{}) noexcept;
+    void    html(string, std::function<void()> opcional=[]()->void{}) noexcept;
+    void    send(string, std::function<void()> opcional=[]()->void{}) noexcept;
+    void    readFile(string,string, std::function<void()> opcional=[]()->void{}) noexcept;
+    void    readFileX(string,string, std::function<void()> opcional=[]()->void{}) noexcept;
 
     // PARAMS:  CONTEN  STATUS OPTIONAL CALLBACK
      void    json(string, int, std::function<void()> opcional=[]()->void{}) noexcept;
@@ -106,6 +109,14 @@ void  Query::readFile(string path,string type, std::function<void()> callback) n
     string body = temp.extract(path);
     last = utility_t::prepare_basic(body, type, headers);
     temp.~Files_t();
+    callback();
+}
+
+void  Query::readFileX(string path,string type, std::function<void()> callback) noexcept {
+    Interpretado temp;
+    string body = temp.extract(path);
+    last = utility_t::prepare_basic(body, type, headers);
+    temp.~Interpretado();
     callback();
 }
 
