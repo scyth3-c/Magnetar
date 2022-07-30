@@ -20,6 +20,7 @@
 
 ## Latest changes
 
+- now you can render cpp code embedded in html files
 - add: post, put, deletex, patch, head, options, link, unlink and purgue with x-www-form-urlconded, geturl, plain/text params each one of them
 - added POST and PUT routes with x-www-form-urlencoded and plain/text
 
@@ -47,6 +48,10 @@ well, I wanted to make public the whole process/growth of this project, it is a 
 
 <hr />
 
+## html view render examples
+
+![cpp](https://user-images.githubusercontent.com/52190352/181878795-36517e4f-b9e2-4314-b694-2bca2995a8ab.png)
+
 
 
 ## How to
@@ -54,6 +59,9 @@ well, I wanted to make public the whole process/growth of this project, it is a 
 
 the functions passed to the routes as the parameters to HEADERS and JSON are Infinite!!!
 the best way to learn is by testing, you can compile the examples with g++ 
+
+
+## routes examples:
 
 **you can see that it's not so wordy, which is the point of this project, but I still have to improve some things... well let's take a look!**
 <hr />
