@@ -26,4 +26,4 @@ $(DIR_OBJ)/%.o : $(SOURCE_DIR)/%.cpp
 
 .PHONY: clean
 clean:
-	@rm -rf $(DIR_OBJ) $(DIR_BIN)
+	@rm -rf $(DIR_OBJ) $(TARGET)
