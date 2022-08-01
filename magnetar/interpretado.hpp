@@ -98,7 +98,7 @@ public:
         reader->close();
         reader.reset();
 
-        for (size_t i = coords.first; i <= coords.second; i++)
+        for (int i = coords.first; i <= coords.second; i++)
         {
             body[i] = char(32);
         }
