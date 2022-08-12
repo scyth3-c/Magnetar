@@ -25,6 +25,18 @@
 - added POST and PUT routes with x-www-form-urlencoded and plain/text
 
 
+## how to get and clone
+
+```
+
+$ git clone https://github.com/scyth3-c/Magnetar.git
+
+$ git submodule init
+
+$ git subodule update
+ 
+```
+
 
 ## compile and use
 
