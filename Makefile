@@ -1,6 +1,10 @@
 DIR_BIN := .
 TARGET := $(DIR_BIN)/Magnetar
 
+# git submodule init
+# git submodule update 
+# before compile
+
 INCLUDE := ./magnetar-core
 SOURCE_DIR := ./test-examples
 
