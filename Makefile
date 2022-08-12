@@ -4,6 +4,7 @@ TARGET := $(DIR_BIN)/Magnetar
 # git submodule init
 # git submodule update 
 # before compile
+# you can select the branch of magnetar-core, you just go into the folder
 
 INCLUDE := ./magnetar-core
 SOURCE_DIR := ./test-examples
