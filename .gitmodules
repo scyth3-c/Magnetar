@@ -1,3 +1,4 @@
 [submodule "magnetar-core"]
 	path = magnetar-core
 	url = https://github.com/scyth3-c/Magnetar-core
+	branch = master
