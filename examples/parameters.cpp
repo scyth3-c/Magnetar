@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../magnetar/core.hpp"
+#include "../magnetar-core/core.hpp"
 
 int main()
 {
