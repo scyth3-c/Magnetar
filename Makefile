@@ -1,7 +1,7 @@
 DIR_BIN := .
 TARGET := $(DIR_BIN)/Magnetar
 
-INCLUDE := ./magnetar
+INCLUDE := ./magnetar-core
 SOURCE_DIR := ./test-examples
 
 DIR_TEMP := ./temp
