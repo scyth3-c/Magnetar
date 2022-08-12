@@ -13,7 +13,7 @@ DIR_TEMP := ./temp
 DIR_OBJ := $(DIR_TEMP)/objects
 
 COMPILER := g++
-FLAGS = -std=c++17 -I$(INCLUDE) -lpthread -Wall -Wextra -Wpedantic 
+FLAGS = -std=c++17 -I$(INCLUDE) -pthread  -Wall -Wextra -Wpedantic 
 
 
 OBJ := $(DIR_OBJ)/main.o 
