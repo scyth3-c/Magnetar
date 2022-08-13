@@ -13,9 +13,9 @@
 <hr/>
 
  Requeriments:
-| system          | compiler            |     ram     |
-| :---            |     :---:           |        ---: |
-| linux           |  g++                |   195 KB    |
+| system          | compiler            |     extra     |
+| :---            |     :---:           |        ---:   |
+| linux           |  g++                | -pthread flag |
 
 
 ## Latest changes
