@@ -6,14 +6,13 @@ TARGET := $(DIR_BIN)/Magnetar
 # before compile
 # you can select the branch of magnetar-core, you just go into the folder
 
-INCLUDE := ./magnetar-core
 SOURCE_DIR := ./test-examples
 
 DIR_TEMP := ./temp
 DIR_OBJ := $(DIR_TEMP)/objects
 
 COMPILER := g++
-FLAGS = -std=c++17 -I$(INCLUDE) -pthread  -Wall -Wextra -Wpedantic 
+FLAGS = -std=c++17  -pthread  -Wall -Wextra -Wpedantic 
 
 
 OBJ := $(DIR_OBJ)/main.o 
