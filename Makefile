@@ -12,7 +12,7 @@ DIR_TEMP := ./temp
 DIR_OBJ := $(DIR_TEMP)/objects
 
 COMPILER := g++
-FLAGS = -std=c++17  -pthread  -Wall -Wextra -Wpedantic 
+FLAGS = -std=c++17  -pthread 
 
 
 OBJ := $(DIR_OBJ)/main.o 
