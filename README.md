@@ -62,9 +62,14 @@ well, I wanted to make public the whole process/growth of this project, it is a 
 
 ## html view render examples
 
+![hmtl](https://user-images.githubusercontent.com/52190352/186290519-d9c21c47-c803-4dc6-a4b8-93ffd0e5b714.png)
+
+
+![temp](https://user-images.githubusercontent.com/52190352/186290466-ee01ece3-afeb-46a0-99f1-9e9a94d3ee28.png)
+
+
 ![cpp](https://user-images.githubusercontent.com/52190352/181878795-36517e4f-b9e2-4314-b694-2bca2995a8ab.png)
 
-![code](https://user-images.githubusercontent.com/52190352/184520718-e13134fe-9239-4c8f-8e2a-e640090a3490.png)
 
 
 
