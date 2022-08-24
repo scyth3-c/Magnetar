@@ -1,1 +1,1 @@
-#include "../examples/template_system.cpp"
+#include "../examples/data_rendering.cpp"
