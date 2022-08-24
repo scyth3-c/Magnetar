@@ -8,7 +8,7 @@
   
  </div>
  
-## [ IN PROCESS... 28%]
+## [ IN PROCESS... ]
 
 <hr/>
 
