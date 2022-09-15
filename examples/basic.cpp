@@ -9,7 +9,7 @@ int main()
 
     string my_message = "Hello World";
 
-    tasty.get("/",{ [&](Query &control) {
+    tasty.get("/verify",{ [&](Query &control) {
 
         control.send(my_message);
     }
