@@ -1,10 +1,10 @@
 #include <iostream>
-#include "../magnetar-core/core.hpp"
+#include "../magnetar-core/neody/neocore.h"
 
 int main(int argc, char const *argv[])
 {
      
-    Magnetar<Server> tasty;
+    Router tasty;
     tasty.setPort(8080);
 
      tasty.get("/index",{ [&](Query &control) {
