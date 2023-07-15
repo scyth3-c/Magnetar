@@ -1,14 +1,14 @@
 #include <iostream>
-#include "../magnetar-core/core.hpp"
+#include "../magnetar-core/neody/neocore.h"
 
 int main()
 {
      
-    Magnetar<Server> tasty;
+    Router tasty;
     tasty.setPort(8080);
      tasty.get("/json",{ [&](Query &control) {
 
-        JSON id = {
+        JSON_s id = {
             "id", "54",
             "token", "asd"
         },

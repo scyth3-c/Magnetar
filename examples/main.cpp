@@ -1,9 +1,9 @@
 #include <iostream>
-#include "../magnetar-core/core.hpp"
+#include "../magnetar-core/neody/neocore.h"
 
 int main()
 {
-    Magnetar<Server> tasty;
+    Router tasty;
     tasty.setPort(8080);
 
     int unscope = 2;
