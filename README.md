@@ -43,14 +43,10 @@ $ git subodule update
 ```
   make:
   
+    $ cd magnetar-core
     $ make 
-    $ ./Magnetar
+    $ ./binary
     
-  normal:
-    
-    $ g++ -std=c++17 -pthread  main.cpp -o Magnetar
-    $ ./Magnetar
-
 ```
  **all examples work**
 ### a preview of my web server,  intuitive and easy to use
@@ -140,13 +136,13 @@ there are still many other functions like the headers or the return system, so I
 
 | RAM          | CPU            | read / write  |
 | :---         |     :---:      |          ---: |
-| 170kb        |  0.0           |   N/D-N/D     |
+| 2 MB        |  0.0           |   N/D-N/D     |
 
 **responding**
 
 | RAM          | CPU            | read / write  |
 | :---         |     :---:      |          ---: |
-| 190kb        |  0.0           |   N/D-N/D     |
+| 2MB        |  0.0           |   N/D-N/D     |
 
 
 
